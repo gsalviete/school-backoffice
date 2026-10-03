@@ -31,6 +31,12 @@ export function criarReposEmMemoria(dados: DadosSeed): Repos {
     },
     mensalidades: {
       listar: async () => [...dados.mensalidades],
+      buscar: async (id) => dados.mensalidades.find((m) => m.id === id),
+      salvar: async (mensalidade) => {
+        const i = dados.mensalidades.findIndex((m) => m.id === mensalidade.id);
+        if (i >= 0) dados.mensalidades[i] = mensalidade;
+        else dados.mensalidades.push(mensalidade);
+      },
     },
   };
 }

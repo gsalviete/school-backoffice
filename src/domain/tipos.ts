@@ -46,4 +46,6 @@ export interface Mensalidade {
   valorCentavos: number;
   vencimento: DataCivil;
   pagaEm?: DataCivil;
+  /** Instante ISO 8601 em que o pagamento foi registrado no app (para "pagas recentemente"). */
+  pagamentoRegistradoEm?: string;
 }

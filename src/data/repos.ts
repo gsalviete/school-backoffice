@@ -31,6 +31,9 @@ export interface ChamadaRepo {
 
 export interface MensalidadeRepo {
   listar(): Promise<Mensalidade[]>;
+  buscar(id: string): Promise<Mensalidade | undefined>;
+  /** Grava a mensalidade, substituindo a de mesmo id. */
+  salvar(mensalidade: Mensalidade): Promise<void>;
 }
 
 export interface Repos {

@@ -43,3 +43,13 @@ export function diaUtilVizinho(data: DataCivil, passo: 1 | -1): DataCivil {
   while (!ehDiaUtil(d)) d = somarDias(d, passo);
   return d;
 }
+
+/** Dias civis de `inicio` até `fim` (negativo se `fim` vem antes). */
+export function diasEntre(inicio: DataCivil, fim: DataCivil): number {
+  return Math.round((paraUtc(fim).getTime() - paraUtc(inicio).getTime()) / 86_400_000);
+}
+
+/** AAAA-MM-DD que existe no calendário (rejeita 2026-02-30). */
+export function ehDataCivilValida(data: string): boolean {
+  return /^\d{4}-\d{2}-\d{2}$/.test(data) && !Number.isNaN(paraUtc(data).getTime()) && paraUtc(data).toISOString().startsWith(data);
+}
