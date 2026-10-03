@@ -1,7 +1,7 @@
 ---
 id: TASK-001
 title: "[DX] Criar esqueleto Next.js da POC com dados em memória"
-status: in-progress
+status: done
 parent: docs/product/backoffice-escola-v1.md#scope
 labels: [poc, setup, frontend]
 priority: 3
