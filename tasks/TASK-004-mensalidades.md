@@ -7,6 +7,7 @@ labels: [poc, frontend, mensalidades]
 priority: 3
 blocked_by: [TASK-001]
 created: 2026-10-02
+parked: "Diff de 514 linhas de produção > orçamento de 500. Implementado e validado no branch TASK-004; decidir: exceção de tamanho ou dividir (regras+lista / registro de pagamento)."
 ---
 
 # [FEAT] Criar tela de mensalidades em aberto e registro de pagamento
