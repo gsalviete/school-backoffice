@@ -8,7 +8,7 @@ A equipe tem 40+ anos e pouca familiaridade com sistemas, mas já começou a usa
 
 ## Who it's for
 
-- **Professora** (~10): faz a chamada diária da própria turma pelo próprio celular, dentro da sala. Não vê nada financeiro.
+- **Professora** (~10): faz a chamada diária das próprias turmas (uma professora pode ter várias) pelo próprio celular, dentro da sala. Não vê nada financeiro.
 - **Secretária** (1): cadastra alunos, turmas e professoras; registra pagamentos; acompanha faltas e atrasos. Usa principalmente o computador da escola.
 - **Direção**: mesmas visões da secretária (frequência e financeiro).
 - Pais/responsáveis **não** acessam o sistema na v1.
@@ -35,11 +35,12 @@ Medidos após 1 mês de uso:
 **Cadastro (secretária)**
 - Importação inicial por planilha simples: nome do aluno, turma, nome do responsável, telefone do responsável.
 - Cadastro, edição e desativação de alunos, turmas e professoras um a um durante o ano.
-- Vínculo professora ↔ turma.
+- Vínculo professora ↔ turma: **uma professora pode ter várias turmas**.
 - Dados guardados por aluno: apenas nome, turma, nome do responsável e telefone do responsável.
 
 **Chamada (professora)**
 - Uma chamada por dia por turma.
+- Professora com várias turmas escolhe a turma num toque antes de fazer a chamada; com uma turma só, vai direto para a chamada.
 - Lista da turma já vem com todos "presentes"; a professora toca só em quem faltou e salva.
 - Dois estados apenas: presente / faltou.
 - A professora pode corrigir chamadas da semana corrente; dias de semanas anteriores só a secretária altera.
@@ -51,6 +52,7 @@ Medidos após 1 mês de uso:
 **Mensalidades (só secretária e direção)**
 - Valor de mensalidade único para todos os alunos; sem descontos, bolsas ou isenções.
 - Cada aluno ativo tem uma mensalidade por mês, com vencimento em dia fixo.
+- **Todos os 12 meses do ano (janeiro a dezembro) geram mensalidade**, inclusive férias. Decisão válida por enquanto; pode mudar no futuro.
 - Registrar pagamento: marcar o mês como "pago" com data (padrão: hoje, editável).
 - Lista de mensalidades em aberto/atrasadas, mostrando "em atraso há X dias".
 
@@ -71,7 +73,7 @@ Medidos após 1 mês de uso:
 ## Acceptance criteria
 
 **Acesso**
-- Dado uma professora que já entrou no sistema no celular, quando ela abre de novo no dia seguinte, então cai direto na chamada da sua turma sem pedir senha.
+- Dado uma professora que já entrou no sistema no celular, quando ela abre de novo no dia seguinte, então entra sem pedir senha e cai direto na chamada (se tiver uma turma) ou na escolha das suas turmas (se tiver várias).
 - Dado uma professora logada, quando ela navega pelo sistema, então não vê nenhuma informação de mensalidade.
 
 **Cadastro**
@@ -81,6 +83,7 @@ Medidos após 1 mês de uso:
 **Chamada**
 - Dado uma professora na tela de chamada do dia, quando ela não toca em ninguém e salva, então todos ficam como presentes.
 - Dado uma turma de 20 alunos com 2 faltas, então a chamada é concluída com no máximo 4 toques (abrir, 2 faltas, salvar).
+- Dado uma professora com 2 turmas, quando ela abre a chamada, então vê apenas as suas 2 turmas, cada uma indicando se a chamada de hoje já foi feita.
 - Dado uma chamada feita na segunda-feira, quando a professora a corrige na quarta da mesma semana, então a correção é aceita.
 - Dado uma chamada da semana anterior, quando a professora tenta corrigir, então o sistema informa que só a secretária pode alterar.
 - Dado uma falha de conexão ao salvar, então a professora vê um aviso claro e pode tentar de novo sem perder o que marcou.
@@ -90,7 +93,7 @@ Medidos após 1 mês de uso:
 - Dado um aluno com 5 faltas no mês corrente, então ele aparece na lista de muitas faltas; com 4, não aparece.
 
 **Mensalidades**
-- Dado um aluno ativo, quando começa um novo mês, então existe uma mensalidade em aberto para ele com o valor único da escola.
+- Dado um aluno ativo, quando começa um novo mês, então existe uma mensalidade em aberto para ele com o valor único da escola — em qualquer um dos 12 meses, inclusive janeiro, julho e dezembro.
 - Dado uma mensalidade em aberto após o vencimento, então ela aparece como atrasada com o número de dias de atraso.
 - Dado uma mensalidade em aberto, quando a secretária marca como paga, então ela sai da lista de pendentes e registra a data informada.
 - Dado uma mensalidade marcada como paga por engano, então a secretária consegue desfazer.
@@ -109,8 +112,7 @@ Medidos após 1 mês de uso:
 | Question | Owner | Status |
 |---|---|---|
 | Qual o valor da mensalidade e o dia de vencimento? | Direção | Aberta |
-| Quais meses do ano geram mensalidade (12 meses? só meses letivos?) e em que mês começa? | Direção | Aberta |
-| Uma professora pode ter mais de uma turma (ou uma turma ter duas professoras)? | Secretária | Aberta |
+| Uma turma pode ter duas professoras (ex.: titular e auxiliar)? Se sim, quem faz a chamada? | Secretária | Aberta |
 | Como lidar com dias sem aula (feriados, recesso) para não marcar turma como "chamada pendente"? | Secretária | Aberta |
 | Aluno que entra ou sai no meio do mês paga o mês cheio? | Direção | Aberta |
 | Quem é "direção" no sistema (quantas pessoas, um login próprio)? | Direção | Aberta |
