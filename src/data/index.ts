@@ -1,4 +1,4 @@
-import { hojeEmSaoPaulo } from "@/domain/datas";
+import { hoje } from "@/lib/relogio";
 import { criarReposEmMemoria } from "./memory";
 import { criarSeed } from "./memory/seed";
 import type { Repos } from "./repos";
@@ -9,7 +9,7 @@ const global = globalThis as typeof globalThis & { __repos?: Repos };
 
 export function repos(): Repos {
   // Guardado em globalThis para sobreviver ao hot reload do `next dev`.
-  global.__repos ??= criarReposEmMemoria(criarSeed(hojeEmSaoPaulo()));
+  global.__repos ??= criarReposEmMemoria(criarSeed(hoje()));
   return global.__repos;
 }
 

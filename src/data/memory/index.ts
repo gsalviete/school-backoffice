@@ -21,6 +21,12 @@ export function criarReposEmMemoria(dados: DadosSeed): Repos {
     },
     chamadas: {
       listarPorPeriodo: async (inicio, fim) => dados.chamadas.filter((c) => c.data >= inicio && c.data <= fim),
+      buscar: async (turmaId, data) => dados.chamadas.find((c) => c.turmaId === turmaId && c.data === data),
+      salvar: async (chamada) => {
+        const i = dados.chamadas.findIndex((c) => c.turmaId === chamada.turmaId && c.data === chamada.data);
+        if (i >= 0) dados.chamadas[i] = chamada;
+        else dados.chamadas.push(chamada);
+      },
     },
     mensalidades: {
       listar: async () => [...dados.mensalidades],

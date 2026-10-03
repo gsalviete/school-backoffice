@@ -35,7 +35,7 @@ const NOMES_TURMAS = [
 
 const PROB_FALTA = 0.04;
 // Turmas que já fizeram a chamada "hoje" — o resto aparece pendente na visão Hoje.
-const TURMAS_FEITAS_HOJE = new Set(["T1", "T2", "T3"]);
+const TURMAS_FEITAS_HOJE = new Set(["T1", "T3", "T4"]);
 // Alunos com contagem exata de faltas no mês corrente, para demonstrar o limite de 5.
 const FALTAS_FIXAS_NO_MES: Record<string, number> = { "T3-03": 5, "T4-04": 4 };
 

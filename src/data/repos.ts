@@ -23,6 +23,9 @@ export interface AlunoRepo {
 export interface ChamadaRepo {
   /** Chamadas com data entre `inicio` e `fim`, inclusive. */
   listarPorPeriodo(inicio: DataCivil, fim: DataCivil): Promise<Chamada[]>;
+  buscar(turmaId: string, data: DataCivil): Promise<Chamada | undefined>;
+  /** Grava a chamada da turma no dia, substituindo a existente (uma por turma por dia). */
+  salvar(chamada: Chamada): Promise<void>;
 }
 
 export interface MensalidadeRepo {
