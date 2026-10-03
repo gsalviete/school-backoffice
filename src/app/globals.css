@@ -1,0 +1,110 @@
+/* Base pensada para público 40+ no celular: letra grande, alvos de toque grandes, alto contraste. */
+:root {
+  --fundo: #ffffff;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --borda: #c9c9c9;
+  --primaria: #1f5fbf;
+  --primaria-texto: #ffffff;
+  --superficie: #f3f5f8;
+  --aviso: #8a5a00;
+  --toque-min: 48px;
+  --espaco: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--espaco);
+}
+
+h1 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin: 0 0 var(--espaco);
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: calc(var(--espaco) * 1.5) 0 calc(var(--espaco) / 2);
+}
+
+button,
+.botao {
+  font: inherit;
+  font-weight: 600;
+  min-height: var(--toque-min);
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 2px solid var(--primaria);
+  background: var(--primaria);
+  color: var(--primaria-texto);
+  cursor: pointer;
+}
+
+button.secundario {
+  background: transparent;
+  color: var(--primaria);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--texto);
+  outline-offset: 2px;
+}
+
+.lista-botoes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.lista-botoes button {
+  width: 100%;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco);
+  padding: 12px var(--espaco);
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borda);
+}
+
+.cabecalho strong {
+  font-size: 1.05rem;
+}
+
+.rodape-teste {
+  text-align: center;
+  padding: 12px var(--espaco);
+  color: var(--aviso);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--borda);
+}
