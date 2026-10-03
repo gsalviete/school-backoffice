@@ -1,7 +1,7 @@
 ---
 id: TASK-003
 title: "[FEAT] Criar visão \"Hoje\" e lista de muitas faltas"
-status: todo
+status: in-progress
 parent: docs/product/backoffice-escola-v1.md#scope
 labels: [poc, frontend, frequencia]
 priority: 3
