@@ -18,6 +18,7 @@ export function criarReposEmMemoria(dados: DadosSeed): Repos {
     alunos: {
       listar: async () => [...dados.alunos],
       listarAtivosPorTurma: async (turmaId) => dados.alunos.filter((a) => a.turmaId === turmaId && a.ativo),
+      buscar: async (id) => dados.alunos.find((a) => a.id === id),
     },
     chamadas: {
       listarPorPeriodo: async (inicio, fim) => dados.chamadas.filter((c) => c.data >= inicio && c.data <= fim),

@@ -245,3 +245,68 @@ body:has(.barra-fixa) {
   color: var(--falta);
   font-weight: 600;
 }
+
+/* Hoje — uma coluna no celular, duas no desktop. Nada de tabela. */
+main.largo {
+  max-width: 1120px;
+}
+
+.painel-hoje {
+  display: grid;
+  gap: 0 calc(var(--espaco) * 2);
+}
+
+@media (min-width: 900px) {
+  .painel-hoje {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .painel-hoje [data-secao="feitas"] {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: var(--espaco) 0 8px;
+}
+
+.lista-simples {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-simples li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px var(--espaco);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--borda);
+}
+
+.detalhe {
+  color: var(--texto-suave);
+  font-weight: 400;
+}
+
+.contato {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px var(--espaco);
+  padding: 10px var(--espaco);
+  margin-top: 4px;
+  border-radius: 10px;
+  background: var(--superficie);
+}
+
+.contato a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--toque-min);
+  font-weight: 600;
+}

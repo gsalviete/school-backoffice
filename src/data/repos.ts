@@ -18,6 +18,7 @@ export interface TurmaRepo {
 export interface AlunoRepo {
   listar(): Promise<Aluno[]>;
   listarAtivosPorTurma(turmaId: string): Promise<Aluno[]>;
+  buscar(id: string): Promise<Aluno | undefined>;
 }
 
 export interface ChamadaRepo {
