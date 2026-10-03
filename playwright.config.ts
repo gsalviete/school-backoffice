@@ -13,9 +13,11 @@ export default defineConfig({
   projects: [
     { name: "hoje-celular", testMatch: "hoje.spec.ts", use: { ...devices["iPhone 13"], browserName: "chromium" } },
     { name: "hoje-desktop", testMatch: "hoje.spec.ts", use: { ...devices["Desktop Chrome"] } },
+    // Mensalidades é tela de escritório: desktop.
+    { name: "mensalidades-desktop", testMatch: "mensalidades.spec.ts", use: { ...devices["Desktop Chrome"] } },
     {
       name: "celular",
-      testIgnore: "hoje.spec.ts",
+      testIgnore: ["hoje.spec.ts", "mensalidades.spec.ts"],
       dependencies: ["hoje-celular", "hoje-desktop"],
       use: { ...devices["iPhone 13"], browserName: "chromium" },
     },
