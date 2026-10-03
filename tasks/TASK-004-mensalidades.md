@@ -1,7 +1,7 @@
 ---
 id: TASK-004
 title: "[FEAT] Criar tela de mensalidades em aberto e registro de pagamento"
-status: todo
+status: in-progress
 parent: docs/product/backoffice-escola-v1.md#scope
 labels: [poc, frontend, mensalidades]
 priority: 3
