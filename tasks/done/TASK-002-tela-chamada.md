@@ -1,7 +1,7 @@
 ---
 id: TASK-002
 title: "[FEAT] Criar tela de chamada da professora"
-status: in-progress
+status: done
 parent: docs/product/backoffice-escola-v1.md#scope
 labels: [poc, frontend, chamada]
 priority: 3
