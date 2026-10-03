@@ -15,5 +15,7 @@ export default defineConfig({
     url: `http://localhost:${PORT}/entrar`,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
+    // Data congelada (quarta-feira) para os testes não dependerem do dia em que rodam.
+    env: { HOJE_FIXO: "2026-10-07" },
   },
 });

@@ -8,6 +8,9 @@
   --primaria-texto: #ffffff;
   --superficie: #f3f5f8;
   --aviso: #8a5a00;
+  --ok: #1d6b35;
+  --falta: #b3261e;
+  --falta-fundo: #fdecea;
   --toque-min: 48px;
   --espaco: 16px;
 }
@@ -107,4 +110,138 @@ button:focus-visible {
   color: var(--aviso);
   font-size: 0.9rem;
   border-top: 1px solid var(--borda);
+}
+
+/* Chamada */
+.cartao-turma {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espaco);
+  min-height: 64px;
+  padding: 12px var(--espaco);
+  border: 2px solid var(--borda);
+  border-radius: 10px;
+  color: var(--texto);
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.status-feita {
+  color: var(--ok);
+}
+
+.status-pendente {
+  color: var(--aviso);
+}
+
+.navegacao-dias {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4px 8px;
+  margin-bottom: var(--espaco);
+}
+
+.navegacao-dias strong {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  font-size: 1.15rem;
+}
+
+a {
+  color: var(--primaria);
+}
+
+.navegacao-dias a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--toque-min);
+  color: var(--primaria);
+}
+
+.navegacao-dias a:last-child {
+  justify-content: flex-end;
+}
+
+.lista-alunos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+button.aluno {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espaco);
+  min-height: 56px;
+  text-align: left;
+  background: var(--fundo);
+  color: var(--texto);
+  border-color: var(--borda);
+}
+
+button.aluno .marca {
+  color: var(--ok);
+  white-space: nowrap;
+}
+
+button.aluno.faltou {
+  background: var(--falta-fundo);
+  border-color: var(--falta);
+}
+
+button.aluno.faltou .marca {
+  color: var(--falta);
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.aviso {
+  padding: 12px var(--espaco);
+  border-left: 4px solid var(--aviso);
+  background: var(--superficie);
+  font-weight: 600;
+}
+
+/* Folga para a barra fixa não cobrir o fim da lista nem o rodapé. */
+body:has(.barra-fixa) {
+  padding-bottom: 88px;
+}
+
+.barra-fixa {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco);
+  padding: 12px var(--espaco) calc(12px + env(safe-area-inset-bottom));
+  background: var(--fundo);
+  border-top: 1px solid var(--borda);
+  box-shadow: 0 -2px 8px rgb(0 0 0 / 8%);
+}
+
+.barra-fixa button {
+  min-width: 140px;
+  font-size: 1.1rem;
+}
+
+.msg-ok {
+  font-weight: 600;
+}
+
+.msg-erro {
+  color: var(--falta);
+  font-weight: 600;
 }

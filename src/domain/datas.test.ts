@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { diasUteisDoPeriodo, hojeEmSaoPaulo, somarDias } from "./datas";
+import { diaUtilVizinho, diasUteisDoPeriodo, hojeEmSaoPaulo, somarDias } from "./datas";
 
 describe("datas no fuso da escola", () => {
   it("22h em São Paulo ainda é o mesmo dia (UTC já virou)", () => {
@@ -20,5 +20,13 @@ describe("datas no fuso da escola", () => {
       "2026-10-05",
       "2026-10-06",
     ]);
+  });
+});
+
+describe("dia útil vizinho", () => {
+  it("pula o fim de semana nos dois sentidos", () => {
+    expect(diaUtilVizinho("2026-10-05", -1)).toBe("2026-10-02"); // segunda → sexta
+    expect(diaUtilVizinho("2026-10-02", 1)).toBe("2026-10-05"); // sexta → segunda
+    expect(diaUtilVizinho("2026-10-07", -1)).toBe("2026-10-06");
   });
 });

@@ -36,3 +36,10 @@ export function diasUteisDoPeriodo(inicio: DataCivil, fim: DataCivil): DataCivil
   }
   return dias;
 }
+
+/** Dia útil imediatamente antes (`passo = -1`) ou depois (`passo = 1`) de `data`. */
+export function diaUtilVizinho(data: DataCivil, passo: 1 | -1): DataCivil {
+  let d = somarDias(data, passo);
+  while (!ehDiaUtil(d)) d = somarDias(d, passo);
+  return d;
+}
