@@ -17,6 +17,7 @@ export interface MensalidadeNaLista extends Mensalidade {
 async function garantir(repos: Repos, hoje: DataCivil): Promise<Mensalidade[]> {
   const [alunos, existentes] = await Promise.all([repos.alunos.listar(), repos.mensalidades.listar()]);
   const todas = regras.garantirMensalidades(alunos, existentes, hoje.slice(0, 7));
+  // garantirMensalidades devolve as existentes primeiro; o que vem depois é novo.
   for (const nova of todas.slice(existentes.length)) await repos.mensalidades.salvar(nova);
   return todas;
 }

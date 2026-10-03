@@ -296,6 +296,7 @@ h3 {
 .contato {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   gap: 4px var(--espaco);
   padding: 10px var(--espaco);
@@ -304,9 +305,68 @@ h3 {
   background: var(--superficie);
 }
 
-.contato a {
+.contato a,
+.menu a {
   display: inline-flex;
   align-items: center;
   min-height: var(--toque-min);
   font-weight: 600;
+}
+
+.menu {
+  display: flex;
+  gap: var(--espaco);
+  margin-right: auto;
+}
+
+/* Mensalidades */
+.campo {
+  display: grid;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.campo input {
+  font: inherit;
+  min-height: var(--toque-min);
+  padding: 8px 12px;
+  border: 2px solid var(--borda);
+  border-radius: 10px;
+}
+
+.mensalidade {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px var(--espaco);
+  padding: 12px var(--espaco);
+  border: 2px solid var(--borda);
+  border-radius: 10px;
+}
+
+.mensalidade.atrasada {
+  border-left: 6px solid var(--falta);
+}
+
+.mensalidade .dados {
+  display: grid;
+}
+
+.painel-pagamento {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 8px;
+}
+
+.pagas-recentes {
+  margin-top: calc(var(--espaco) * 2);
+}
+
+.pagas-recentes summary {
+  min-height: var(--toque-min);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
 }
